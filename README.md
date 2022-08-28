@@ -7,3 +7,5 @@
 - [Ed](https://edstem.org/us/courses/23633/discussion/)
 
 # Textbooks
+- [Network Science - Albert-László Barabási](http://networksciencebook.com/)
+
