@@ -63,7 +63,7 @@ Even if you know nothing about the underlying system, what would you say about i
 Suppose that we are to design a communication system of some sort that will interconnect 6 sites. The first question is: what should be the network architecture? This figure shows several options. For example, the Ring architecture provides two disjoint paths between every pair of nodes. The Line, Tree, and Star architectures require the fewest number of links but they are highly vulnerable when certain nodes or edges fail. The Fully Connected architecture requires the highest number of links but it also provides the most direct (and typically faster) and resilient communication. The Mesh architecture  provides a trade-off between all previous properties.
 
 ## Network Centrality
-![M1L01_Fig05](imgs/M1L01_Fig05)
+![M1L01_Fig05](imgs/M1L01_Fig05.png)
 
 Above is an image that shows the co-authorship network for a set of Network Science researchers: each node represents a researcher and two nodes are connected if they have published at least one paper together. (Image Source: University of Michigan (Links to an external site.))
 
@@ -76,7 +76,7 @@ Sometimes we want to identify nodes and edges that are very central in the sense
 Or, nodes and edges that, if removed, will cause the largest disruption in the underlying network. 
 
 
-![M1L01_Fig06](imgs/M1L01_Fig06)
+![M1L01_Fig06](imgs/M1L01_Fig06.png)
 For example, the image above refers to the characters of the third Game of Thrones novel, called “A storm of swords”.  (Image Source: The Measurement Standard, Carma) 
 
 Two nodes are connected if the corresponding two characters interacted in that novel, and the weight of the edge represents the length of that interaction.
@@ -93,11 +93,11 @@ Both metrics suggest that Tyrion and Jon are the most central characters in that
 
 
 ## Communities (Modules) in Networks
-![M1L01_Fig07](imgs/M1L01_Fig07)
+![M1L01_Fig07](imgs/M1L01_Fig07.png)
 
 Another important problem in Network Science is to discover Communities – in other words, clusters of highly interconnected nodes. The density of the connections between nodes of the same community is much larger than the density of the connections between nodes of different communities. 
 
-![M1L01_Fig06](imgs/M1L01_Fig06)
+![M1L01_Fig06](imgs/M1L01_Fig06.png)
 
 Returning to the previous Game of Thrones visualization, each color represents a different community – with a total of 7 communities of different sizes.
 
@@ -111,7 +111,7 @@ An important component of Network Science is the focus on Dynamic Networks – s
 
 For example, the brain’s neural network is changing dramatically during adolescence – but more recent research in neuroscience shows that brain connections also change when people learn something new or even when they meditate.
 
-![M1L01_Fig08](imgs/M1L01_Fig08)
+![M1L01_Fig08](imgs/M1L01_Fig08.png)
 
 
 The image above shows how the community structure of a network may be changing over time. (Image Source: The University of Florida)
@@ -142,7 +142,7 @@ The dynamic processes that take place on a network are often not physical. For e
 
 We will study such influence or “information contagion” phenomena in the context of mostly Facebook and Twitter.
 
-![M1L01_Fig09](imgs/M1L01_Fig09)
+![M1L01_Fig09](imgs/M1L01_Fig09.png)
 
 For example, the image above comes from a recent study focusing on the effect of misinformation (known as “fake news”) on Twitter in the 2016 US Presidential Elections. (Image Source: [Bovet, A., Makse, H.A. Influence of fake news in Twitter during the 2016 US presidential election. Nat Commun 10, 7 (2019)](https://www.nature.com/articles/s41467-018-07761-2) )
 
@@ -158,7 +158,7 @@ As you probably know, Machine Learning generates statistical models from data an
 
 Network Science has contributed to this field by focusing on graph models – statistical models of static or dynamic networks that can capture the important properties of real-world networks in a parsimonious manner.
 
-![M1L01_Fig10](imgs/M1L01_Fig10)
+![M1L01_Fig10](imgs/M1L01_Fig10.png)
 
 The image above comes from a recent research paper about schizophrenia. (Image Source: [Ganapathiraju, M., Thahir, M., Handen, A. et al. Schizophrenia interactome with 504 novel protein–protein interactions. npj Schizophr 2, 16012 (2016)](https://www.nature.com/articles/npjschz201612))
 
@@ -203,11 +203,11 @@ There are **two main differences** however between these disciplines and Network
 ## The Birth of Network Science
 **The birth of Network Science took place back in 1998 or 1999, with the publication of two very influential research papers.**
 
-![M1L01_Fig11](imgs/M1L01_Fig11)
+![M1L01_Fig11](imgs/M1L01_Fig11.png)
 
 The **first** was the discovery by Watts and Strogatz of the Small-World property in real-world networks. Roughly speaking, this means that most node-pairs are close to each other, only within a small number of hops. You may have heard the term “six degrees of separation”, in the context of social networks, meaning that most people are connected with each other through a path of 6 (or so) acquaintances. 
 
-![M1L01_Fig12](imgs/M1L01_Fig12)
+![M1L01_Fig12](imgs/M1L01_Fig12.png)
 
 A **second** influential paper was published in 1999 by two physicists, Barabási and Albert.
 
