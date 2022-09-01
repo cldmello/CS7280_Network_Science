@@ -116,3 +116,23 @@ We also need to revise our definition of node degree: the number of incoming con
 **Food for Thought**
 - Do you see that the sum of in-degrees across all nodes v is equal to the number of edges m? The same is true for the sum of out-degrees.
 
+## Weighted Directed Graphs
+
+So far we assumed that all edges have the same **strength** – and the elements of the adjacency matrix are either 0s or 1s. In practice, most graphs have edges of different strength – we can represent the strength of an edge with a number. Such graphs are referred to as weighted. 
+
+In some cases the edge weights represent **capacity** (*especially when there is a flow of some sort through the network*). In other cases edge weights represent distance or cost (*especially when we are interested in optimizing communication efficiency across the network*). 
+
+In undirected networks, the “strength” of a node is the sum of weights of all edges that are adjacent to that node. 
+
+![M1L02_Fig11](imgs/M1L02_Fig11.png)
+
+In directed networks, we define **in-strength** (*for incoming edges*) and **out-strength** (*for outgoing edges*).
+
+![M1L02_Fig12](imgs/M1L02_Fig12.png)
+
+In **signed graphs**, the edge weights can be negative, representing competitive interactions. For example, think of a network of people in which there are both friends and enemies (as shown in the visualization above). 
+
+
+
+
+
