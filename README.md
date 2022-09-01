@@ -9,3 +9,6 @@
 # Textbooks
 - [Network Science - Albert-László Barabási](http://networksciencebook.com/)
 - [Networks, Crowds, and Markets: Reasoning About a Highly Connected World](https://www.cs.cornell.edu/home/kleinber/networks-book/)
+
+# References
+- [Signed PageRank on Online Rating Systems](https://link.springer.com/article/10.1007/s11424-021-0124-2)
