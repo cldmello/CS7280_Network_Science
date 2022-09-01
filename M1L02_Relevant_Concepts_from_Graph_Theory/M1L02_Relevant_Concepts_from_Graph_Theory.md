@@ -82,14 +82,37 @@ If we want to compute the set of all connected components of a graph, we can rep
 
 Food-for-thought: If you are not familiar with the  notation, please read about them at: [https://en.wikipedia.org/wiki/Big_O_notation](https://en.wikipedia.org/wiki/Big_O_notation) 
 
+## Trees and Other Regular Networks
 
+In graph theory, the focus is often on some special classes of networks, such as trees, lattices, regular networks, planar graphs, etc. 
 
+In this course, we will focus instead on complex graphs that do not fit in any of these special classes. However, we will sometimes contrast and compare the properties of complex networks with some regular graphs.
 
+![M1L02_Fig07](imgs/M1L02_Fig07.png)
 
+For instance, trees are connected graphs that do not have cycles – and you can easily show that the number of edges in a tree of n nodes is always m=n-1. 
 
+![M1L02_Fig08](imgs/M1L02_Fig08.png)
 
+A k-regular graph is a network in which every vertex has the same degree k. The visualization shows an example of a k-regular network for k=4.
 
+![M1L02_Fig09](imgs/M1L02_Fig09.png)
 
+A complete graph (or “clique”) is a special case of a regular network in which every vertex is connected to every other vertex (k=n-1). The example shows a clique with 6 nodes.
 
+**Food for Thought**
+- Suppose that a graph is k-regular. How would you show that a vector of n ones (1, 1, … 1) is an eigenvector of the adjacency matrix -- and the corresponding eigenvalue is equal to k?
 
+## Directed Graphs
+
+![M1L02_Fig10](imgs/M1L02_Fig10.png)
+
+Another common class of networks is directed graphs. Here, each edge (u,v) has a starting node u and an ending node v. This means that the corresponding adjacency matrix may no longer be symmetric. 
+
+A common convention is that the element (i,j) of the adjacency matrix is equal to 1 if the edge is from node i to node j – please be aware however that this convention is not universal.
+
+We also need to revise our definition of node degree: the number of incoming connections to a node v is referred to as **in-degree** of v, and the number of outgoing connections as **out-degree** of v. 
+
+**Food for Thought**
+- Do you see that the sum of in-degrees across all nodes v is equal to the number of edges m? The same is true for the sum of out-degrees.
 
