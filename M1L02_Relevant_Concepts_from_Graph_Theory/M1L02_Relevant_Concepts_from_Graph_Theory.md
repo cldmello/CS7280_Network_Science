@@ -156,3 +156,24 @@ The visualization above shows an example in which node D cannot reach S (*so S c
 **Food for Thought**
 We suggest you study Tarjan's or Kosaraju’s algorithm. For instance, Kosaraju's algorithm is described at: [Kosaraju's algorithm](https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm)
 
+## Directed Acyclic Graphs (DAGs)
+
+![M1L02_Fig16](imgs/M1L02_Fig16.png)
+
+![M1L02_Fig17](imgs/M1L02_Fig17.png)
+
+![M1L02_Fig18](imgs/M1L02_Fig18.png)
+
+#### How to show the previous three properties
+- **First, if a directed network has a topological order then it must be a DAG.**
+  - This is easy to show: if the network had a cycle, there would be an edge from a higher-rank node to a lower-rank node -- but this would violate the topological order property.
+
+- **Second, a DAG must include at least one source node, i.e., a node with zero incoming edges.** 
+  - To see that, start from any node of the DAG and start moving backwards, following edges in the opposite direction. Given that there are no cycles and the graph has a finite number of nodes, we will eventually reach a source node. 
+
+- **Third, if a graph is a DAG then it must have a topological ordering.**
+  - You can show this as follows:
+    - Start from a source node s (we already showed that every DAG has at least one source node).
+    - Then remove that source node s and decrement the in-degree of all nodes that s points to. The graph is still a DAG after the removal of s.
+    - Choose a new source node s’ and repeat the previous step until all nodes are removed. 
+- Note that the topological order of a DAG may not be unique.
