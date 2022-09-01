@@ -1,7 +1,7 @@
 # Module 1 Lesson 02 - Relevant Concepts from Graph Theory
 
 ## An Introduction
-![M1L01_Fig01](M1L01_Fig01.png)
+![M1L02_Fig01](imgs/M1L02_Fig01.png)
 
 This visualization shows the seven bridges of Königsberg. The birth of graph theory took place in 1736 when Leonhard Euler showed that it is not possible to walk through all seven bridges by crossing each of them once and only once. 
 
@@ -14,7 +14,7 @@ This visualization shows the seven bridges of Königsberg. The birth of graph th
 
 Let’s start by defining more precisely what we mean by graph or network -- we use these two terms interchangeably. We will also define some common types of graphs.
 
-![M1L01_Fig02](M1L01_Fig02.png)
+![M1L02_Fig02](imgs/M1L02_Fig02.png)
 
 A graph, or network, represents a collection of dyadic relations between a set of **nodes**. This set is often denoted by V because nodes are also called **vertices**.  The relations are referred to as **edges** or **links**, usually denoted by the set E. So, an edge (u,v) is a member of the set E, and it represents a relation between vertices u and v in the set V. 
 
@@ -24,7 +24,7 @@ Typically we do not allow edges between a node and itself. We also do not allow 
 
 ## Adjacency Matrix
 
-![M1L01_Fig03](M1L01_Fig03.png)
+![M1L02_Fig03](imgs/M1L02_Fig03.png)
 
 A graph is often represented either with an Adjacency Matrix, as shown in this visualization. The matrix representation requires a single memory access to check if an edge exists but it requires n2 space. The adjacency matrix representation allows us to use tools from linear algebra to study graph properties.
 
@@ -36,7 +36,7 @@ For example, an undirected graph is represented by a symmetric matrix A – and 
 
 ## Adjacency List
 
-![M1L01_Fig04](M1L01_Fig04.png)
+![M1L02_Fig04](imgs/M1L02_Fig04.png)
 
 The adjacency list representation requires n+2\*m space because every edge is included twice. 
 
@@ -66,15 +66,15 @@ For k=1, the number of walks is either 1 or 0, depending on whether two nodes ar
 
 For k>1, the number of walks of length k between s and t is the number of walks of length k-1 between s and v, across all nodes v that connect directly with t. The number of walks of length k between s and v is given by the (s,v) element of the matrix Ak (based on the inductive hypothesis). So, the number of walks of length k between s to t is given by: 
 
-![M1L01_01](imgs/M1L01_01.png)
+![M1L02_01](imgs/M1L02_01.png)
 
 ## (Weakly) Connected Components
 
-![M1L01_Fig05](M1L01_Fig05.png)
+![M1L02_Fig05](imgs/M1L02_Fig05.png)
 
 An undirected graph is connected if there is a path from any node to any other node. As we saw in Lesson-1, there are many real-world networks that are not connected – instead, they consist of more than one **connected components**. 
 
-![M1L01_Fig06](M1L01_Fig06.png)
+![M1L02_Fig06](imgs/M1L02_Fig06.png)
 
 A **breadth-first-search** (BFS) traversal from a node s can produce the set of nodes in the connected component that includes s. Starting from any other node in that component would result in the same **connected component**. 
 
