@@ -132,7 +132,27 @@ In directed networks, we define **in-strength** (*for incoming edges*) and **out
 
 In **signed graphs**, the edge weights can be negative, representing competitive interactions. For example, think of a network of people in which there are both friends and enemies (as shown in the visualization above). 
 
+## Strongly Connected Components
+In directed graphs, the notion of connectedness is different: a node s may be able to reach a node t through a (**directed**) path – but node t may not be able to reach node s. 
 
+A directed graph is **strongly connected** if there is a path between all pairs of vertices. A **strongly connected component** (SCC) of a directed graph is a maximal **strongly connected** subgraph.
 
+![M1L02_Fig13](imgs/M1L02_Fig13.png)
 
+If the graph has only one SCC, we say that it is strongly connected. **How would you check (in linear time) if a directed graph is strongly connected**? Please think about this for a minute before you see the answer below.
+
+![M1L02_Fig14](imgs/M1L02_Fig14.png)
+
+**Answer**
+
+First, note that a directed graph is strongly connected if and only if any node s can reach all other nodes, and every other node can reach s. So, we can pick any node s and then run BFS twice. First, on the original graph G. Second, run BFS on the graph G’ in which each edge has opposite direction than in G  -- G’ is called the _**reverse**_ graph of G. If both BFS traversals reach all nodes in G, it must be that G is strongly connected (do you see why?). 
+
+![M1L02_Fig15](imgs/M1L02_Fig15.png)
+
+The visualization above shows an example in which node D cannot reach S (*so S cannot reach D in the reverse graph*). 
+
+**How would you compute the set of strongly connected components in a directed graph**? Two famous algorithms to do so are Tarjan’s algorithm and Kosaraju’s algorithm. They both rely on Depth-First Search traversals and run in 𝚯(n+m) time, if the graph is represented with an adjacency list. 
+
+**Food for Thought**
+We suggest you study Tarjan's or Kosaraju’s algorithm. For instance, Kosaraju's algorithm is described at: [Kosaraju's algorithm](https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm)
 
