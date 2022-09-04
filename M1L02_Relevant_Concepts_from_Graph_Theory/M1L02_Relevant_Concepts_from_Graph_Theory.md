@@ -193,3 +193,131 @@ If the network is weighted and some weights are negative, then instead of Dijkst
 
 **Food for Thought** 
 - If you are not familiar with Fibonacci heaps, we suggest you review that data structure at: [Fibonacci heap](https://en.wikipedia.org/wiki/Fibonacci_heap)
+
+
+## Random walk
+In some cases, we do not have a complete map of the network. Instead, we only know the node that we currently reside at, and the connections of that node. When that is the case, it is often useful to perform a **random walk** in which we move randomly between network nodes. 
+
+The simplest instance of a random walk process is to imagine a **walker** that moves iteratively from the node it currently resides on to one of v’s neighbors. The selection of which neighbor to visit next is random. In unweighted networks, if node v has k outgoing edges, the transition probability associated with each of those edges is 1/k. In weighted networks, the transition probabilities are functions of the edge weights. In either case, we can represent these transition probabilities with a matrix **P** in which the (i,j) element is the probability that the walker moves from node i to node j. 
+
+If *q_t* is the vector that represents the probability that the walker is at each node at time t, then the random walk is described by the equation: *q_(t+1) = P^T * q_t*, where *P^T* is the transpose of the transition matrix. Note that the sum of the elements of *q_t* is equal to 1 for any time t.
+
+An important question is: what is the probability that the walker will be found at a given node after many such transitions? If these probabilities converge asymptotically, we can think of them as the fraction of time that the walker spends at each node. This is referred to as the stationary distribution of the random walk. 
+
+An important result is that, in undirected and connected networks, a stationary distribution always exists. The corresponding vector q is a solution of the equation *q = P^T * q* (but note that the solution may not be unique). See also the first "food-for-thought" question below. 
+
+
+**Food for Thought**
+  
+1) Show that in undirected and connected networks in which the elements of the matrix **P** are strictly positive (and so there is at least a small probability of transitioning from every node to every other node),  the steady-state probability vector **q** is unique and it is the leading eigenvector of the transition matrix *P^T*.  
+
+Hint: the largest eigenvalue of *P^T* is equal to 1. Why?
+
+2) What can go wrong with the stationary distribution equation in directed networks?
+
+
+## Min-Cut Problem
+
+Another important concept in graph theory (and network science) is the notion of a **minimum cut** (or min-cut). Given a graph with a source node s and a sink node t, we define as **cut(s,t)** of the graph a set of edges that, if removed, will disrupt all paths from s to t. 
+
+In unweighted networks, the min-cut problem refers to computing the cut with the minimum number of edges. In weighted networks, the min-cut refers to the cut with minimum sum of edge weights.
+
+![M1L02_Fig20](imgs/M1L02_Fig20.png)
+
+## Max-flow Problem
+
+Another problem that occurs naturally in networks that have a source node s and a target node t is to compute a **"flow"** from s to t. 
+
+The edge weights here represent the capacity of each edge, i.e., an edge of weight w>0 cannot carry more than w flow units. 
+
+Additionally, edges cannot have a negative flow. 
+
+The total flow that arrives at a non-terminal node v has to be equal to the total flow that departs from v – in other words, flow is conserved.
+
+The max-flow problem refers to computing the maximum amount of flow that can originate at s and terminate at t, subject to the capacity constraints and the flow conservation constraints. 
+
+The max-flow problem can be solved efficiently using the **Ford-Fulkerson** algorithm, as long as the capacities are rational numbers. In that case, the running time of the algorithm is *O(mF)*, where m is the number of edges and F is the maximum capacity of any edge.
+
+The algorithm works by constructing a **residual network**, which shows at any point during the execution of the algorithm the residual capacity of each edge. In each iteration, the algorithm finds a path from s to t with some residual capacity (we can use BFS or DFS on the residual network to do that). Suppose that the minimum residual capacity among the edges of the chosen path is f. We add f on the flow of every edge (u,v) along that path, and decrease the capacity of those edges by f in the residual network. We also add f on the capacity of every reverse edge (v,u) of the residual network. The capacity of those reverse edges is necessary so that we can later reduce the flow along the edge (u,v), if needed, by routing some flow on the edge (v,u). 
+
+
+**Food-for-thought:**
+- Construct the residual network (also showing the flow on the reverse edges) for the example shown in the previous video. 
+
+![M1L02_Fig21](imgs/M1L02_Fig21.png)
+![M1L02_Fig22](imgs/M1L02_Fig22.png)
+![M1L02_Fig23](imgs/M1L02_Fig23.png)
+
+## Max-flow=Min-cut
+An important result about the min-cut and max-flow problems is that they have the same solution: the sum of the weights of the min-cut is equal to the max-flow in that network.
+
+![M1L02_Fig24](imgs/M1L02_Fig24.jpeg)
+**Part A:**  ANY cut(L,R) such that s∈L  and t∈R  has capacity ≥  ANY flow from s to t.
+Thus: mincut(s,t)≥maxflow(s,t)
+
+
+**Part B:** IF *f\** = maxflow(s,t) , the network can be partitioned in two sets of nodes L and R with s∈L  and t∈R , such that:
+
+All edges from L to R have flow =capacity
+All edges from R to L have flow = 0.
+So, edges from L to R define a  cut(s,t) with capacity = maxflow(s,t) and, because of Part A, this cut is mincut(s,t).
+
+Thus: mincut(s,t)=maxflow(s,t)
+
+![M1L02_Fig25](imgs/M1L02_Fig25.jpeg)
+
+
+## Bipartite Graphs
+Another important class of networks is bipartite graphs. Their defining property is that the set of nodes V can be partitioned into two subsets, L and R, so that every edge connects a node from L and a node from R. There are no edges between L nodes – or between R nodes. 
+
+
+**Food for Thought**
+Show the following theorem. A graph is bipartite if and only if it does not include any odd-length cycles. 
+
+![M1L02_Fig26](imgs/M1L02_Fig26.jpeg)
+
+## A Recommendation System as a Bipartite Graph
+Let's close this lesson with a practical application of bipartite graphs. 
+
+Suppose you want to create a **“recommendation system”** for an e-commerce site. You are given a dataset that includes the items that each user has purchased in the past. You can represent this dataset with a bipartite graph that has users on one side and items on the other side. Each edge (user, item) represents that that user has purchased the corresponding item. 
+
+![M1L02_Fig27](imgs/M1L02_Fig27.jpeg)
+
+**How would you find users that have similar item preferences?** Having such **“similar users”** means that we can give recommendations that are more likely to lead to a new purchase.
+
+![M1L02_Fig28](imgs/M1L02_Fig28.jpeg)
+
+This question can be answered by computing the **“one-mode projection”** of the bipartite graph onto the set of users. This projection is a graph that includes only the set of users – and an edge between two users if they have purchased at least one common item. The weight of the edge is the number of items they have both purchased. 
+
+
+**How would you find items that are often purchased together by the same user?** Knowing about such **“similar items”** is also useful because we can place them close to each other or suggest that the user considers them both.
+
+![M1L02_Fig29](imgs/M1L02_Fig29.jpeg)
+
+This can be computed by the **“one-mode projection”** of the bipartite graph onto the set of items. As in the previous projection, two items are connected with a weighted edge that represents the number of users that have purchased both items.
+
+## Co-citation and Bibliographic Coupling
+
+The previous one-mode projections can also be computed using the adjacency matrix A that represents the bipartite graph. 
+
+Suppose that the element (i,k) of A is 1 if there is an edge from i to k – and 0 otherwise. 
+
+The co-citation metric *C_i,j* for two nodes i and j is the number of nodes that have outgoing edges to both i and j. If i and j are items, then the co-citation metric is the number of users that have purchased both i and j. 
+
+On the other hand, the bibliographic coupling metric *B_i,j* for two nodes i and j is the number of nodes that receive incoming edges from both i and j. If i and j are users, then the bibliographic coupling metric is the number of items that have been purchased by both i and j.
+
+![M1L02_Fig30](imgs/M1L02_Fig30.jpeg)
+
+As you can see both metrics can be computed as the product of A and A^T – the only difference is the order of the matrices in the product.
+
+## Lesson Summary
+
+The objective of this lesson was to review a number of important concepts and results from graph theory and graph algorithms. 
+
+We will use this material in subsequent lessons. For example, the notion of random walks will be important in the definition of the PageRank centrality metric, while the spectral properties of an adjacency matrix will be important in the eigenvector centrality metric. 
+
+The Module-1 assignment will also help you understand these concepts more deeply, and to learn how to apply them in practice with real-world network datasets.
+
+
+
+
