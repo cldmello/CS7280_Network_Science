@@ -274,25 +274,25 @@ Another important class of networks is bipartite graphs. Their defining property
 **Food for Thought**
 Show the following theorem. A graph is bipartite if and only if it does not include any odd-length cycles. 
 
-![M1L02_Fig26](imgs/M1L02_Fig26.jpeg)
+![M1L02_Fig26](imgs/M1L02_Fig26.png)
 
 ## A Recommendation System as a Bipartite Graph
 Let's close this lesson with a practical application of bipartite graphs. 
 
 Suppose you want to create a **“recommendation system”** for an e-commerce site. You are given a dataset that includes the items that each user has purchased in the past. You can represent this dataset with a bipartite graph that has users on one side and items on the other side. Each edge (user, item) represents that that user has purchased the corresponding item. 
 
-![M1L02_Fig27](imgs/M1L02_Fig27.jpeg)
+![M1L02_Fig27](imgs/M1L02_Fig27.png)
 
 **How would you find users that have similar item preferences?** Having such **“similar users”** means that we can give recommendations that are more likely to lead to a new purchase.
 
-![M1L02_Fig28](imgs/M1L02_Fig28.jpeg)
+![M1L02_Fig28](imgs/M1L02_Fig28.png)
 
 This question can be answered by computing the **“one-mode projection”** of the bipartite graph onto the set of users. This projection is a graph that includes only the set of users – and an edge between two users if they have purchased at least one common item. The weight of the edge is the number of items they have both purchased. 
 
 
 **How would you find items that are often purchased together by the same user?** Knowing about such **“similar items”** is also useful because we can place them close to each other or suggest that the user considers them both.
 
-![M1L02_Fig29](imgs/M1L02_Fig29.jpeg)
+![M1L02_Fig29](imgs/M1L02_Fig29.png)
 
 This can be computed by the **“one-mode projection”** of the bipartite graph onto the set of items. As in the previous projection, two items are connected with a weighted edge that represents the number of users that have purchased both items.
 
@@ -306,7 +306,7 @@ The co-citation metric *C_i,j* for two nodes i and j is the number of nodes that
 
 On the other hand, the bibliographic coupling metric *B_i,j* for two nodes i and j is the number of nodes that receive incoming edges from both i and j. If i and j are users, then the bibliographic coupling metric is the number of items that have been purchased by both i and j.
 
-![M1L02_Fig30](imgs/M1L02_Fig30.jpeg)
+![M1L02_Fig30](imgs/M1L02_Fig30.png)
 
 As you can see both metrics can be computed as the product of A and A^T – the only difference is the order of the matrices in the product.
 
