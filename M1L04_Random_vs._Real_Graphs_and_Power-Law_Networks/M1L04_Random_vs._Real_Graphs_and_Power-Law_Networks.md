@@ -33,6 +33,36 @@ Note that the exponent of the CCDF function is α - 1, instead of α. So, if the
 For directed networks, we can have that the in-degree or the out-degree or both follow a power-law distribution (with potentially different exponents).
 
 **Food for Thought**
-- **Prompt 1:** Repeat the derivations given here in more detail. ​
+- **Prompt 1:** Repeat the derivations given here in more detail. 
 - **Prompt 2:** Can you think of a network with n nodes in which all nodes have about the same in-degree but the out-degrees are highly skewed?​
+
+## The Role of the Exponent of a Power-law Distribution 
+What is the mean and the variance of a power-law degree distribution?
+
+More generally we can ask: what is the m’th statistical moment of a power-law degree distribution?
+
+It is defined as:
+![M1L04_03](imgs/M1L04_03.png)
+
+where c is the proportionality coefficient we derived in the previous page. 
+
+If we rely again on the continuous k approximation, the previous summation becomes an integral that we can easily calculate:
+![M1L04_04](imgs/M1L04_04.png)
+
+Note that this integral diverges to infinity if m - α + 1 >= 0 and so, the m’th moment of a power-law degree distribution is well defined (finite) if m < α - 1. 
+
+Consequently, the mean (first moment) exists if α > 2 and the variance (second moment minus the square of the mean) exists if α > 3.  
+
+Of course the variance cannot be “infinite” if the network has a finite number of nodes (i.e., k never ”extends to infinity” in real networks). For many real-world networks however, the exponent α is estimated to be between 2 and 3, which means that even though the distribution has a well-defined average degree, the variability of the degree across different nodes is extremely large.
+
+![M1L04_Fig05](imgs/M1L04_Fig05.jpg)
+Standard Deviation is Large in Real Networks, Figure 4.8 from networksciencebook.com by Albert-László Barabási
+
+To illustrate this last point, let’s look at the relation between the average degree and the standard deviation of the degreek_istribution for several real-networks (for more details about these networks please review Table 4.1 of your textbook). 
+![M1L04_05](imgs/M1L04_05.png)
+
+Note that many real-world networks have much higher σ than that --  in some cases σ is even an order of magnitude larger than k_. In the case of the WWW in-degree distribution, for example, the average in-degree is only around 4 while the standard deviation of the in-degree is almost 40!​
+
+**Food for Thought**
+- Prompt: repeat the derivation for the m’th moment outlined above in more detail. 
 
