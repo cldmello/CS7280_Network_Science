@@ -1,4 +1,4 @@
-# Module 1 Lesson 03 - Degree Distribution and The "Friendship Paradox"
+# Module 2 Lesson 03 - Degree Distribution and The "Friendship Paradox"
 
 ## Learning Objectives
 Students will be able to:
@@ -19,7 +19,7 @@ Students will be able to:
 
 ## Degree Distribution
 
-![M1L03_Fig01](imgs/M1L03_Fig01.png)
+![M2L03_Fig01](imgs/M2L03_Fig01.png)
 
 The degree distribution of a given network shows the fraction of nodes with degree k. 
 
@@ -27,7 +27,7 @@ If we think of networks as random samples from an ensemble of graphs, we can thi
 
 The network in this visualization has six nodes and the plot shows the empirical probability density function (which is a histogram) for the probability p_k. 
 
-![M1L03_Fig02](imgs/M1L03_Fig02.png)
+![M2L03_Fig02](imgs/M2L03_Fig02.png)
 
 Recall that, given the probability distribution of a random variable, we can compute the first moment (mean), second moment, variance, etc. 
 
@@ -35,17 +35,17 @@ The above formulas show the moments that we will mostly use in this course: the 
 
 ### Complementary Cumulative Distribution Function
 
-![M1L03_Fig03](imgs/M1L03_Fig03.png)
+![M2L03_Fig03](imgs/M2L03_Fig03.png)
 
 For larger networks, we usually do not show the empirical probability density function pk.  Instead, we show the probability that the degree is at least k, for any k>=0.  
 
-![M1L03_Fig04](imgs/M1L03_Fig04.png)
+![M2L03_Fig04](imgs/M2L03_Fig04.png)
 
 This is referred to as the Complementary Cumulative Distribution Function (denoted as C-CDF).  Note that P_k_ = Prob[degree>=k] is the sum of all px values for x>=k. 
 
 ## Two Special Degree Distributions
 
-![M1L03_Fig05](imgs/M1L03_Fig05.png)
+![M2L03_Fig05](imgs/M2L03_Fig05.png)
 
 The C-CDF plots are often shown using a logarithmic scale at the x-axis and/or y-axis. Here is why.  
 
@@ -73,13 +73,13 @@ Suppose that we pick a random edge in the network – and we randomly select one
 This is easy to answer when the degrees of connected nodes are independent.  
 
 q_k = (number of nodes of degree k) x (probability an edge connects to a specific node of degree k)
-![M1L03_01](imgs/M1L03_01.png)
+![M2L03_01](imgs/M2L03_01.png)
 
 Note that the probability that the randomly chosen stub connects to a node of degree k is proportional to both k and the probability that a node has degree k.  
 
 This means that, for nodes with degree k > k_, it is more likely to sample one of their stubs than the nodes themselves. The opposite is true for nodes with degree  k < k_.
 
-![M1L03_Fig06](imgs/M1L03_Fig06.png)
+![M2L03_Fig06](imgs/M2L03_Fig06.png)
 
 Based on the previous derivation, we can now ask: what is the expected value of a neighbor’s degree?  
 
@@ -88,7 +88,7 @@ Note that we are not asking for the average degree of a node. Instead, we are in
 This is the same as the expected value of the degree of the node we select if we sample a random edge stub.  Lets denote this expected value as k_nn_.
 
 The derivation is as follows.
-![M1L03_02](imgs/M1L03_02.png)
+![M2L03_02](imgs/M2L03_02.png)
 
 We can now give a mathematical statement of the friendship paradox: as long as the variance of the degree distribution is not zero, and given our assumption that neighboring nodes have independent degrees, the average neighbor’s degree is higher than the average node degree. 
 
@@ -99,7 +99,7 @@ Can you explain in an intuitive way why the average neighbor’s degree is large
 
 ## Two Extreme Cases of The Friendship Paradox
 
-![M1L03_Fig07](imgs/M1L03_Fig07.png)
+![M2L03_Fig07](imgs/M2L03_Fig07.png)
 
 Think of two extremes in terms of degree distribution: an infinitely large regular network in which all nodes have the same degree (and thus the degree variance is 0), and an infinitely large star network with one hub node at the center and all peripheral nodes connecting only to the hub.   
 
@@ -136,7 +136,7 @@ In other words, if we reach a node v by following an edge from another node, the
 
 Here is a well-known fact that you may have learned in a probability course: the Binomial distribution can be approximated by the Poisson distribution as long as  is much smaller than 1. In other words, this approximation is true for sparse networks in which the average degree p\*(n-1) is much lower than the size of the network n. The Poisson distribution is described by:
 
-![M1L03_03](imgs/M1L03_03.png)
+![M2L03_03](imgs/M2L03_03.png)
 
 Because of the 1/(k!) term, p_k decreases with k faster than exponentially.
 
@@ -144,7 +144,7 @@ You may ask, why to use the Poisson approximation instead of the Binomial(n-1,p)
 
 The reason is simple: the Poisson distribution has a single parameter, which is the average node degree k_.
 
-![M1L03_Fig08](imgs/M1L03_Fig08.png)
+![M2L03_Fig08](imgs/M2L03_Fig08.png)
 
 The visualization shows the degree distribution for a network in which the average degree is 50. As we increase the number of nodes n, we need to decrease the connection probability p so that their product remains constant. Note that the Poisson distribution is a rather poor approximation for n=100 (because the average node degree is half of n) but it is excellent as long as n is larger than 1000.  
 
@@ -170,19 +170,19 @@ If you continue watching this animation until the end (it takes about five minut
 ## Size of LCC in G(n,p) as Function of p
 We can derive the relation between p and the size of the LCC as follows:  
 
-![M1L03_Fig09](imgs/M1L03_Fig09.png)
+![M2L03_Fig09](imgs/M2L03_Fig09.png)
 
 Suppose that S is the probability that a node belongs in the LCC. Another way to think of S is as the expected value of the fraction of network nodes that belong in the LCC.  
 
 Then, S_ = 1 - S is the probability that a node does NOT belong in the LCC.  
 
 That probability can be written as
-![M1L03_04](imgs/M1L03_04.png)
+![M2L03_04](imgs/M2L03_04.png)
 
 The first term refers to the case that a node v is not connected to another node, while the second term refers to the case that v is connected to another node that is not in the LCC. 
 
  Since, p = k_ / (n-1), the last equation can be written as:
-![M1L03_05](imgs/M1L03_05.png)
+![M2L03_05](imgs/M2L03_05.png)
 
 The visualization shows the relation between the left and right sides of the previous equation, i.e., the relation between S and 1 - e^(-k_*S).
 
@@ -194,7 +194,7 @@ So, if the average degree is larger than one, the function y(S) starts above the
 
 One the other hand, if the average node degree is less (or equal) than 1, the function y(S) starts with a slope that is less (or equal) than 1, and it remains below the diagonal y=x for positive S. This means that if the average node degree is less or equal than one, the average size of the LCC in a G(n,p) network includes almost zero nodes.  
 
-![M1L03_Fig10](imgs/M1L03_Fig10.png)
+![M2L03_Fig10](imgs/M2L03_Fig10.png)
 
 The visualization shows how S increases with the average node degree k_. Note how the LCC suddenly **“explodes”** when the average node degree is larger than 1. This is referred to as “phase transition”. A phase transition that we are all familiar with is what happens to water when its temperature reaches the freezing or boiling temperature: the macroscopic state changes abruptly from liquid to solid or gas. Something similar happens with G(n,p) when the average node degree exceeds the critical value k_ = 1: the network suddenly acquires a “giant connected component” that includes a large fraction of all network nodes.  
 
@@ -210,42 +210,42 @@ Suppose again that S is the probability that a node belongs in the LCC.
 
 Then, the probability that a node does NOT connect to ANY node in the LCC:
 
-![M1L03_06](imgs/M1L03_06.png)
+![M2L03_06](imgs/M2L03_06.png)
 
 The expected number of nodes not connecting to LCC:
 
-![M1L03_07](imgs/M1L03_07.png)
+![M2L03_07](imgs/M2L03_07.png)
 
 Recall that (1 - x/n)^n \~= e^(-x) when x << n. So we assume at this point of the derivation that the network is sparse (p << 1).
 
 If we set k_0_  to less than one node, we get that:
 
-![M1L03_08](imgs/M1L03_08.png)
+![M2L03_08](imgs/M2L03_08.png)
 
 which means that when the average degree is higher than the natural logarithm of the network size (k_ > ln n) **we expect to have a single connected component**. 
 
 ## Degree Correlations
 
-![M1L03_Fig11](imgs/M1L03_Fig11.png)
+![M2L03_Fig11](imgs/M2L03_Fig11.png)
 
 We assumed throughout this lesson that the degree of a node does not depend on the degree of its neighbors. In other words, **we assumed that there are no degree correlations.** 
 
 Mathematically, if nodes u and v are connected, we have assumed that;  
 
-![M1L03_09](imgs/M1L03_09.png)
+![M2L03_09](imgs/M2L03_09.png)
 
 Note: this probability does not depend on the degree k’ of neighbor v.  Such networks are referred to as neutral. 
 
 In general, however, there are correlations between the degrees of neighboring nodes, and they are described by the conditional probability distribution: 
 
-![M1L03_10](imgs/M1L03_10.png)
+![M2L03_10](imgs/M2L03_10.png)
 
 The expected value of this distribution is referred to as the average nearest-neighbor degree k_nn(k) of degree-k nodes:
 
-![M1L03_11](imgs/M1L03_11.png)
+![M2L03_11](imgs/M2L03_11.png)
 
 In a neutral network, we have already derived that k_nn(k) is independent of k (recall that we derived 
-![M1L03_12](imgs/M1L03_12.png)
+![M2L03_12](imgs/M2L03_12.png)
 
 In most real networks, k_nn(k) depends on k and it shows an increasing or decreasing trend with k.  
 
@@ -254,7 +254,7 @@ The network at the left shows an example in which small-degree nodes tend to con
 The network at the right shows an example of a network in which small-degree nodes tend to connect to high-degree nodes. 
 
 **Degree Correlation Example**
-![M1L03_Fig12](imgs/M1L03_Fig12.png)
+![M2L03_Fig12](imgs/M2L03_Fig12.png)
 - Here is an example: what is the average nearest neighbor degree of node v in this network? 
 
 - To calculate k_nn(k) we compute the average value of k_nn(v) for all nodes v with k(v) = x.  
