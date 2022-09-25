@@ -263,7 +263,7 @@ So, the link selection model is just a variant of preferential attachment and it
 
 ## What Does The Power-law Property Mean in Practice?
 
-![M2L04_Fig20](imgs/M2L04_Fig20.jpeg)
+![M2L04_Fig20](imgs/M2L04_Fig20.jpg)
 [Image source](https://www.nature.com/articls/35082140/figures/2)
 
 The focus of this lecture so far has been on the statistical properties of networks with power-law degree distribution. What does this property mean in practice, however? And how does it affect network phenomena that all of us care about, such as the spread of epidemics?
