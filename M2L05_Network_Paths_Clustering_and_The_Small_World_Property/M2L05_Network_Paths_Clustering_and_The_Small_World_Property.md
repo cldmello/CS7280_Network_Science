@@ -1,3 +1,5 @@
+# Module 2 Lesson 05 - Network Paths, Clustering and The “Small World” Property
+
 ## Learning Objectives
 Students will be able to:
 - Introduce the “network efficiency” concept and define the relevant quantitative metrics  
