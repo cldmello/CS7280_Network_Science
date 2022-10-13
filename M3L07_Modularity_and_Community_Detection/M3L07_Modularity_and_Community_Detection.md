@@ -292,7 +292,7 @@ This is a useful expression, showing that the merging step results in higher mod
 ![M3L07_Fig16](imgs/M3L07_Fig16.png)
 
 **Computational Complexity**
-Since the calculation of each ΔM can be done in constant time, Step-2 of the greedy algorithm requires O(L) computations. After deciding which communities to merge, the update of the matrix can be done in a worst-case time O(N). Since the algorithm requires N–1 community mergers, its complexity is O[(L + N)N], or O(N2) on a sparse graph. 
+Since the calculation of each ΔM can be done in constant time, Step-2 of the greedy algorithm requires O(L) computations. After deciding which communities to merge, the update of the matrix can be done in a worst-case time O(N). Since the algorithm requires N–1 community mergers, its complexity is O[(L + N)N], or O(N^2) on a sparse graph. 
 
 **Optimized Greedy Algorithm**
 The use of data structures for sparse matrices can decrease the greedy algorithm’s computational complexity to O(N log2N). For more details please read the paper Finding community structure in very large networksLinks to an external site. by Clauset, Newman and Moore. 
