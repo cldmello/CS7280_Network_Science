@@ -70,7 +70,7 @@ Then, we can rewrite the previous definition in matrix form:
 
 Where 1 is a n-by-1 vector of all ones.
 
-The value of λ controls the relative magnitude between the constant centrality β we assign to each node and the centrality that each node derives from its neighbors. If λ is very large, then the former term dominates and all nodes have roughly the same centrality. If λ is too small, on the other hand, the Katz centralities may diverge. This is the case when the determinant of the matrix (I - 1/λ A) is zero, which happens when  is equal to an eigenvalue of A. To avoid this divergence, the value of  is typically *constrained to be larger than the maximum eigenvalue of A*.
+The value of λ controls the relative magnitude between the constant centrality β we assign to each node and the centrality that each node derives from its neighbors. If λ is very large, then the former term dominates and all nodes have roughly the same centrality. If λ is too small, on the other hand, the Katz centralities may diverge. This is the case when the determinant of the matrix (I - 1/λ A) is zero, which happens when λ is equal to an eigenvalue of A. To avoid this divergence, the value of λ is typically *constrained to be larger than the maximum eigenvalue of A*.
 
 Note that the Katz centrality values given in the figure are normalized by the L2-norm of the centrality vector. 
 
